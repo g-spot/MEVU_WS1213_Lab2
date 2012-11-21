@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Generated-from: 1352541683000;type=10
+Bundle-ManifestVersion: 2
+Bundle-Name: Kermeta documentation
+Bundle-SymbolicName: fr.irisa.triskell.kermeta.documentation; singleton:=true
+Bundle-Version: 1.4.0
+Bundle-Activator: org.eclipse.core.internal.compatibility.PluginActivator
+Bundle-Vendor: IRISA/INRIA
+Bundle-Localization: plugin
+Require-Bundle: fr.irisa.triskell.kermeta,
+ org.eclipse.core.runtime.compatibility,
+ org.eclipse.help,
+ org.eclipse.emf.ecore,
+ fr.irisa.triskell.kermeta.io,
+ org.eclipse.core.resources,
+ org.eclipse.ui,
+ org.kermeta.slf4j.eclipse
+Ant-Version: Apache Ant 1.7.1
+Created-By: 14.2-b01 (Sun Microsystems Inc.)
+Eclipse-LazyStart: true

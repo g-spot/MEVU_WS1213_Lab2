@@ -1,0 +1,13 @@
+!SESSION 2012-11-21 18:56:53.434 -----------------------------------------------
+eclipse.buildId=I20120608-1400
+java.version=1.6.0_37
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=de_DE
+Framework arguments:  -product org.eclipse.epp.package.modeling.product -product org.eclipse.epp.package.modeling.product -keyring /Users/gerhard/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.modeling.product -data /Users/gerhard/Develop/MEVU_WS1213_Lab2 -product org.eclipse.epp.package.modeling.product -keyring /Users/gerhard/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2012-11-21 18:56:58.505
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY fr.irisa.triskell.kermeta.kpm 2 2 2012-11-21 18:56:59.443
+!MESSAGE Failed to load existing kpm file, will re-initilize it

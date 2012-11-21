@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/at.ac.tuwien.big.me12.gradingsystem/src" modelPluginID="at.ac.tuwien.big.me12.gradingsystem"
+    modelName="GradingSystem" importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0"
+    copyrightFields="false">
+  <foreignModel>gradingsystem.ecore</foreignModel>
+  <genPackages prefix="GradingSystem" basePackage="ac.at.tuwien.big.me12" disposableProviderFactory="true"
+      ecorePackage="gradingsystem.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="gradingsystem.ecore#//MinRequirementsType">
+      <genEnumLiterals ecoreEnumLiteral="gradingsystem.ecore#//MinRequirementsType/Percentage"/>
+      <genEnumLiterals ecoreEnumLiteral="gradingsystem.ecore#//MinRequirementsType/Absolute"/>
+    </genEnums>
+    <genClasses ecoreClass="gradingsystem.ecore#//GradingSystem">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gradingsystem.ecore#//GradingSystem/courses"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gradingsystem.ecore#//GradingSystem/students"/>
+    </genClasses>
+    <genClasses ecoreClass="gradingsystem.ecore#//Course">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gradingsystem.ecore#//Course/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gradingsystem.ecore#//Course/gradings"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="gradingsystem.ecore#//Task">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gradingsystem.ecore#//Task/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gradingsystem.ecore#//Task/minRequirement"/>
+    </genClasses>
+    <genClasses ecoreClass="gradingsystem.ecore#//ConcreteTask">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gradingsystem.ecore#//ConcreteTask/maxPoints"/>
+    </genClasses>
+    <genClasses ecoreClass="gradingsystem.ecore#//TaskGroup">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gradingsystem.ecore#//TaskGroup/contains"/>
+    </genClasses>
+    <genClasses ecoreClass="gradingsystem.ecore#//MinRequirement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gradingsystem.ecore#//MinRequirement/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gradingsystem.ecore#//MinRequirement/type"/>
+    </genClasses>
+    <genClasses ecoreClass="gradingsystem.ecore#//Student">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gradingsystem.ecore#//Student/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gradingsystem.ecore#//Student/registrationId"/>
+    </genClasses>
+    <genClasses ecoreClass="gradingsystem.ecore#//TaskAttendance">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gradingsystem.ecore#//TaskAttendance/reachedPoints"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gradingsystem.ecore#//TaskAttendance/student"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gradingsystem.ecore#//TaskAttendance/task"/>
+    </genClasses>
+    <genClasses ecoreClass="gradingsystem.ecore#//GradingScheme">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gradingsystem.ecore#//GradingScheme/grades"/>
+    </genClasses>
+    <genClasses ecoreClass="gradingsystem.ecore#//Grade">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gradingsystem.ecore#//Grade/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gradingsystem.ecore#//Grade/requiredPoints"/>
+    </genClasses>
+    <genClasses ecoreClass="gradingsystem.ecore#//Grading">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gradingsystem.ecore#//Grading/tasks"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gradingsystem.ecore#//Grading/gradingScheme"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gradingsystem.ecore#//Grading/taskAttendances"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gradingsystem.ecore#//Grading/semester"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

@@ -1,0 +1,22 @@
+course Model_Engineering {
+	semester WS2012 {
+		grading scheme (N5) {
+			S1 : 176; 
+			N5 : 0;
+			B3 : 124;
+			G4 : 100;
+			U2 : 150;
+		}
+		LecturePart {
+			Exam1 (50) : min 50 %;
+			Exam2 (50) : min 50 %;
+		}
+		LabPart {
+			Lab1 (25) : min 8 point(s);
+			Lab2 (25) : min 8 point(s);
+			Lab3 (25) : min 8 point(s);
+			Lab4 (25) : min 8 point(s);
+			@all : min 50 %;		
+		}
+	}
+}

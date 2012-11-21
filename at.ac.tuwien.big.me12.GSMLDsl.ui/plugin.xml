@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<plugin>
+
+    <extension
+            point="org.eclipse.ui.editors">
+        <editor
+            class="at.ac.tuwien.big.me12.ui.GSMLDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
+            contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
+            default="true"
+            extensions="gsml"
+            id="at.ac.tuwien.big.me12.GSMLDsl"
+            name="GSMLDsl Editor">
+        </editor>
+    </extension>
+    <extension
+        point="org.eclipse.ui.handlers">
+        <handler
+            class="at.ac.tuwien.big.me12.ui.GSMLDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclarationHandler"
+            commandId="org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclaration">
+            <activeWhen>
+                <reference
+                    definitionId="at.ac.tuwien.big.me12.GSMLDsl.Editor.opened">
+                </reference>
+            </activeWhen>
+        </handler>
+        <handler
+            class="at.ac.tuwien.big.me12.ui.GSMLDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.handler.ValidateActionHandler"
+            commandId="at.ac.tuwien.big.me12.GSMLDsl.validate">
+         <activeWhen>
+            <reference
+                    definitionId="at.ac.tuwien.big.me12.GSMLDsl.Editor.opened">
+            </reference>
+         </activeWhen>
+      </handler>
+    </extension>
+    <extension point="org.eclipse.core.expressions.definitions">
+        <definition id="at.ac.tuwien.big.me12.GSMLDsl.Editor.opened">
+            <and>
+                <reference definitionId="isActiveEditorAnInstanceOfXtextEditor"/>
+                <with variable="activeEditor">
+                    <test property="org.eclipse.xtext.ui.editor.XtextEditor.languageName" 
+                        value="at.ac.tuwien.big.me12.GSMLDsl" 
+                        forcePluginActivation="true"/>
+                </with>        
+            </and>
+        </definition>
+    </extension>
+    <extension
+            point="org.eclipse.ui.preferencePages">
+        <page
+            class="at.ac.tuwien.big.me12.ui.GSMLDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
+            id="at.ac.tuwien.big.me12.GSMLDsl"
+            name="GSMLDsl">
+            <keywordReference id="at.ac.tuwien.big.me12.ui.keyword_GSMLDsl"/>
+        </page>
+        <page
+            category="at.ac.tuwien.big.me12.GSMLDsl"
+            class="at.ac.tuwien.big.me12.ui.GSMLDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.syntaxcoloring.SyntaxColoringPreferencePage"
+            id="at.ac.tuwien.big.me12.GSMLDsl.coloring"
+            name="Syntax Coloring">
+            <keywordReference id="at.ac.tuwien.big.me12.ui.keyword_GSMLDsl"/>
+        </page>
+        <page
+            category="at.ac.tuwien.big.me12.GSMLDsl"
+            class="at.ac.tuwien.big.me12.ui.GSMLDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.templates.XtextTemplatePreferencePage"
+            id="at.ac.tuwien.big.me12.GSMLDsl.templates"
+            name="Templates">
+            <keywordReference id="at.ac.tuwien.big.me12.ui.keyword_GSMLDsl"/>
+        </page>
+    </extension>
+    <extension
+            point="org.eclipse.ui.propertyPages">
+        <page
+            class="at.ac.tuwien.big.me12.ui.GSMLDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
+            id="at.ac.tuwien.big.me12.GSMLDsl"
+            name="GSMLDsl">
+            <keywordReference id="at.ac.tuwien.big.me12.ui.keyword_GSMLDsl"/>
+            <enabledWhen>
+	            <adapt type="org.eclipse.core.resources.IProject"/>
+			</enabledWhen>
+	        <filter name="projectNature" value="org.eclipse.xtext.ui.shared.xtextNature"/>
+        </page>
+    </extension>
+    <extension
+        point="org.eclipse.ui.keywords">
+        <keyword
+            id="at.ac.tuwien.big.me12.ui.keyword_GSMLDsl"
+            label="GSMLDsl"/>
+    </extension>
+    <extension
+         point="org.eclipse.ui.commands">
+      <command
+            description="Trigger expensive validation"
+            id="at.ac.tuwien.big.me12.GSMLDsl.validate"
+            name="Validate">
+      </command>
+    </extension>
+    <extension point="org.eclipse.ui.menus">
+        <menuContribution
+            locationURI="popup:#TextEditorContext?after=group.edit">
+             <command
+                 commandId="at.ac.tuwien.big.me12.GSMLDsl.validate"
+                 style="push"
+                 tooltip="Trigger expensive validation">
+            <visibleWhen checkEnabled="false">
+                <reference
+                    definitionId="at.ac.tuwien.big.me12.GSMLDsl.Editor.opened">
+                </reference>
+            </visibleWhen>
+         </command>  
+         </menuContribution>
+    </extension>
+    <extension point="org.eclipse.ui.menus">
+		<menuContribution locationURI="popup:#TextEditorContext?endof=group.find">
+			<command commandId="org.eclipse.xtext.ui.editor.FindReferences">
+				<visibleWhen checkEnabled="false">
+                	<reference definitionId="at.ac.tuwien.big.me12.GSMLDsl.Editor.opened">
+                	</reference>
+            	</visibleWhen>
+			</command>
+		</menuContribution>
+	</extension>
+	<extension point="org.eclipse.ui.handlers">
+	    <handler
+            class="at.ac.tuwien.big.me12.ui.GSMLDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.findrefs.FindReferencesHandler"
+            commandId="org.eclipse.xtext.ui.editor.FindReferences">
+            <activeWhen>
+                <reference
+                    definitionId="at.ac.tuwien.big.me12.GSMLDsl.Editor.opened">
+                </reference>
+            </activeWhen>
+        </handler>
+    </extension>   
+
+<!-- adding resource factories -->
+
+	<extension
+		point="org.eclipse.emf.ecore.extension_parser">
+		<parser
+			class="at.ac.tuwien.big.me12.ui.GSMLDslExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceFactory"
+			type="gsml">
+		</parser>
+	</extension>
+	<extension point="org.eclipse.xtext.extension_resourceServiceProvider">
+        <resourceServiceProvider
+            class="at.ac.tuwien.big.me12.ui.GSMLDslExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
+            uriExtension="gsml">
+        </resourceServiceProvider>
+    </extension>
+
+
+    <!-- marker definitions for at.ac.tuwien.big.me12.GSMLDsl -->
+    <extension
+            id="gsmldsl.check.fast"
+            name="GSMLDsl Problem"
+            point="org.eclipse.core.resources.markers">
+        <super type="org.eclipse.xtext.ui.check.fast"/>
+        <persistent value="true"/>
+    </extension>
+    <extension
+            id="gsmldsl.check.normal"
+            name="GSMLDsl Problem"
+            point="org.eclipse.core.resources.markers">
+        <super type="org.eclipse.xtext.ui.check.normal"/>
+        <persistent value="true"/>
+    </extension>
+    <extension
+            id="gsmldsl.check.expensive"
+            name="GSMLDsl Problem"
+            point="org.eclipse.core.resources.markers">
+        <super type="org.eclipse.xtext.ui.check.expensive"/>
+        <persistent value="true"/>
+    </extension>
+
+	<!-- Quick Outline -->
+	<extension
+		point="org.eclipse.ui.handlers">
+		<handler 
+			class="at.ac.tuwien.big.me12.ui.GSMLDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.outline.quickoutline.ShowQuickOutlineActionHandler"
+			commandId="org.eclipse.xtext.ui.editor.outline.QuickOutline">
+			<activeWhen>
+				<reference
+					definitionId="at.ac.tuwien.big.me12.GSMLDsl.Editor.opened">
+				</reference>
+			</activeWhen>
+		</handler>
+	</extension>
+	<extension
+		point="org.eclipse.ui.commands">
+		<command
+			description="Open the quick outline."
+			id="org.eclipse.xtext.ui.editor.outline.QuickOutline"
+			name="Quick Outline">
+		</command>
+	</extension>
+	<extension point="org.eclipse.ui.menus">
+		<menuContribution
+			locationURI="popup:#TextEditorContext?after=group.open">
+			<command commandId="org.eclipse.xtext.ui.editor.outline.QuickOutline"
+				style="push"
+				tooltip="Open Quick Outline">
+				<visibleWhen checkEnabled="false">
+					<reference definitionId="at.ac.tuwien.big.me12.GSMLDsl.Editor.opened"/>
+				</visibleWhen>
+			</command>
+		</menuContribution>
+	</extension>
+
+  <extension point="org.eclipse.compare.contentViewers">
+    <viewer id="at.ac.tuwien.big.me12.GSMLDsl.compare.contentViewers"
+            class="at.ac.tuwien.big.me12.ui.GSMLDslExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
+            extensions="gsml">
+    </viewer>
+  </extension>
+  <extension point="org.eclipse.compare.contentMergeViewers">
+    <viewer id="at.ac.tuwien.big.me12.GSMLDsl.compare.contentMergeViewers"
+            class="at.ac.tuwien.big.me12.ui.GSMLDslExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
+            extensions="gsml" label="GSMLDsl Compare">
+     </viewer>
+  </extension>
+  <extension point="org.eclipse.ui.editors.documentProviders">
+    <provider id="at.ac.tuwien.big.me12.GSMLDsl.editors.documentProviders"
+            class="at.ac.tuwien.big.me12.ui.GSMLDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.model.XtextDocumentProvider"
+            extensions="gsml">
+    </provider>
+  </extension>
+    <!-- quickfix marker resolution generator for at.ac.tuwien.big.me12.GSMLDsl -->
+    <extension
+            point="org.eclipse.ui.ide.markerResolution">
+        <markerResolutionGenerator
+            class="at.ac.tuwien.big.me12.ui.GSMLDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+            markerType="at.ac.tuwien.big.me12.ui.gsmldsl.check.fast">
+            <attribute
+                name="FIXABLE_KEY"
+                value="true">
+            </attribute>
+        </markerResolutionGenerator>
+        <markerResolutionGenerator
+            class="at.ac.tuwien.big.me12.ui.GSMLDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+            markerType="at.ac.tuwien.big.me12.ui.gsmldsl.check.normal">
+            <attribute
+                name="FIXABLE_KEY"
+                value="true">
+            </attribute>
+        </markerResolutionGenerator>
+        <markerResolutionGenerator
+            class="at.ac.tuwien.big.me12.ui.GSMLDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+            markerType="at.ac.tuwien.big.me12.ui.gsmldsl.check.expensive">
+            <attribute
+                name="FIXABLE_KEY"
+                value="true">
+            </attribute>
+        </markerResolutionGenerator>
+    </extension>
+
+</plugin>

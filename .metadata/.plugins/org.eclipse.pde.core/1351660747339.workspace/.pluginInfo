@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map>
+	<bundle bundleID="1070" localization="plugin" name="%pluginName" project="at.ac.tuwien.big.me12.gradingsystem" provider="%providerName">
+		<library name="."/>
+	</bundle>
+	<bundle bundleID="1072" localization="OSGI-INF/l10n/bundle" name="at.ac.tuwien.big.me12.GSMLDsl.tests" project="at.ac.tuwien.big.me12.GSMLDsl.tests" provider="My Company"/>
+	<bundle bundleID="1073" class="at.ac.tuwien.big.me12.ui.internal.GSMLDslActivator" localization="OSGI-INF/l10n/bundle" name="at.ac.tuwien.big.me12.GSMLDsl.ui" project="at.ac.tuwien.big.me12.GSMLDsl.ui" provider="My Company"/>
+	<bundle bundleID="1071" localization="OSGI-INF/l10n/bundle" name="at.ac.tuwien.big.me12.GSMLDsl" project="at.ac.tuwien.big.me12.GSMLDsl" provider="My Company"/>
+	<bundle bundleID="1069" localization="OSGI-INF/l10n/bundle" name="ME_WS11_Lab2_Resources" project="ME_WS12_Lab2_Test"/>
+</map>

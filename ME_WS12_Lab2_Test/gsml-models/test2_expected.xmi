@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="ASCII"?>
+<gradingsystem:GradingSystem xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gradingsystem="http://gradingsystem.me12.big.tuwien.ac.at/1.0">
+  <courses name="Model_Engineering">
+    <gradings semester="WS2012">
+      <tasks xsi:type="gradingsystem:TaskGroup" name="LecturePart">
+        <contains xsi:type="gradingsystem:ConcreteTask" name="Exam1" maxPoints="50">
+          <minRequirement value="50"/>
+        </contains>
+        <contains xsi:type="gradingsystem:ConcreteTask" name="Exam2" maxPoints="50">
+          <minRequirement value="50"/>
+        </contains>
+      </tasks>
+      <tasks xsi:type="gradingsystem:TaskGroup" name="LabPart">
+        <minRequirement value="50"/>
+        <contains xsi:type="gradingsystem:ConcreteTask" name="Lab1" maxPoints="25">
+          <minRequirement value="8" type="ABSOLUTE"/>
+        </contains>
+        <contains xsi:type="gradingsystem:ConcreteTask" name="Lab2" maxPoints="25">
+          <minRequirement value="8" type="ABSOLUTE"/>
+        </contains>
+        <contains xsi:type="gradingsystem:ConcreteTask" name="Lab3" maxPoints="25">
+          <minRequirement value="8" type="ABSOLUTE"/>
+        </contains>
+        <contains xsi:type="gradingsystem:ConcreteTask" name="Lab4" maxPoints="25">
+          <minRequirement value="8" type="ABSOLUTE"/>
+        </contains>
+      </tasks>
+      <gradingScheme minRequirementNotFulfilledGrade="//@courses.0/@gradings.0/@gradingScheme/@grades.1">
+        <grades name="S1" requiredPoints="176"/>
+        <grades name="N5"/>
+        <grades name="B3" requiredPoints="124"/>
+        <grades name="G4" requiredPoints="100"/>
+        <grades name="U2" requiredPoints="150"/>
+      </gradingScheme>
+    </gradings>
+    <gradings semester="WS2011">
+      <tasks xsi:type="gradingsystem:TaskGroup" name="LecturePart">
+        <minRequirement value="50"/>
+        <contains xsi:type="gradingsystem:TaskGroup" name="OralLecturePart">
+          <contains xsi:type="gradingsystem:ConcreteTask" name="Exam1" maxPoints="50">
+            <minRequirement value="50"/>
+          </contains>
+          <contains xsi:type="gradingsystem:ConcreteTask" name="Exam2" maxPoints="50">
+            <minRequirement value="50"/>
+          </contains>
+        </contains>
+        <contains xsi:type="gradingsystem:ConcreteTask" name="Exam3" maxPoints="50">
+          <minRequirement value="50"/>
+        </contains>
+      </tasks>
+      <tasks xsi:type="gradingsystem:ConcreteTask" name="Lab1" maxPoints="50"/>
+      <gradingScheme minRequirementNotFulfilledGrade="//@courses.0/@gradings.1/@gradingScheme/@grades.1">
+        <grades name="PASS" requiredPoints="100"/>
+        <grades name="FAIL"/>
+      </gradingScheme>
+    </gradings>
+  </courses>
+  <courses name="Web_Engineering">
+    <gradings semester="WS2012">
+      <tasks xsi:type="gradingsystem:ConcreteTask" name="Exam1" maxPoints="50"/>
+      <gradingScheme minRequirementNotFulfilledGrade="//@courses.1/@gradings.0/@gradingScheme/@grades.0">
+        <grades name="NONE"/>
+      </gradingScheme>
+    </gradings>
+  </courses>
+</gradingsystem:GradingSystem>

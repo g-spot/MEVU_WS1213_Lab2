@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://gradingsystem.me12.big.tuwien.ac.at/1.0"
+            class="ac.at.tuwien.big.me12.gradingsystem.GradingSystemPackage"
+            genModel="model/gradingsystem.genmodel"/>
+   </extension>
+
+</plugin>
